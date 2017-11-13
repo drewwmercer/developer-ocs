@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from './components/Grid';
 import Saved from './pages/Saved';
-import Search from './pages/Search';
+import Project from './pages/Project';
+import New from '.pages/New';
 import Nav from './components/Nav';
 
 const App = () => (
@@ -11,8 +12,8 @@ const App = () => (
       <Nav />
       <Switch>
         <Route path="/:saved" component={Saved} />
-        <Route path="/" component={Search} />
-        {Route path='/:favorited' component={}}
+        <Route path="/" component={Project} />
+        <Route path='/:post' component={New} />
       </Switch>
     </Container>
   </Router>
