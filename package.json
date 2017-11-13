@@ -4,6 +4,11 @@
   "description": "Allows to post and reply to project posts via login validation",
   "main": "index.js",
   "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "seed": "node scripts/seedDB.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/drewwmercer/developer-ocs.git",
@@ -16,6 +21,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "jshint": "^2.9.5",
     "mongoose": "^4.13.2",
     "passport": "^0.4.0",
     "react": "^16.1.0",
@@ -34,6 +40,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
+    "concurrently": "^3.5.0",
     "css-loader": "^0.28.7",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
