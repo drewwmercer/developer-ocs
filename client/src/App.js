@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from './components/Grid';
-import Saved from './pages/Saved';
-import Project from './pages/Project';
-import New from '.pages/New';
+import SavedProjects from './pages/SavedProjects';
+import AllProjects from './pages/AllProjects';
+import NewProject from './pages/NewProject';
 import Nav from './components/Nav';
 
 const App = () => (
@@ -11,9 +11,9 @@ const App = () => (
     <Container fluid>
       <Nav />
       <Switch>
-        <Route path="/:saved" component={Saved} />
-        <Route path="/" component={Project} />
-        <Route path='/:post' component={New} />
+        <Route path="/saved" component={SavedProjects} />
+        <Route path="/new" component={NewProject} />
+        <Route path="/" component={AllProjects} />
       </Switch>
     </Container>
   </Router>
