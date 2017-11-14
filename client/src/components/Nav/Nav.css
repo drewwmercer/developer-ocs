@@ -3,3 +3,10 @@
   vertical-align: middle;
   font-size: 20px;
 }
+
+.pageName:hover, .pageName:active {
+  color: olivedrab !important;
+}
+
+
+

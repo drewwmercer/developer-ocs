@@ -9,12 +9,17 @@ const Nav = () => (
       <ul class="nav navbar-nav">
         <li>
           <Link to={'/'} className="pageName">
-            Search For Articles
+            Log In
           </Link>
         </li>
         <li>
           <Link to={'/saved'} className="pageName">
-            Saved Article List
+            Saved List
+          </Link>
+        </li>
+        <li>
+          <Link to={'/new'} className="pageName">
+            Post a Project
           </Link>
         </li>
       </ul>
