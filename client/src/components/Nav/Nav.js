@@ -4,12 +4,17 @@ import './Nav.css';
 
 const Nav = () => (
   <nav className="navbar navbar-default navbar-top">
-    <div className="container-fluid">
-      {/* <div className="navbar-header"> */}
+    <div className="container-fluid logo">
+      <a href="/">
+        <img src="/assets/images/devOCS.png" />
+      </a>
+    </div>
+
+    <div className="container-fluid branches">
       <ul class="nav navbar-nav">
         <li>
-          <Link to={'/'} className="pageName">
-            Log In
+          <Link to={'/new'} className="pageName">
+            Post a Project
           </Link>
         </li>
         <li>
@@ -18,12 +23,11 @@ const Nav = () => (
           </Link>
         </li>
         <li>
-          <Link to={'/new'} className="pageName">
-            Post a Project
+          <Link to={'/'} className="pageName">
+            Log In
           </Link>
         </li>
       </ul>
-      {/* </div> */}
     </div>
   </nav>
 );
