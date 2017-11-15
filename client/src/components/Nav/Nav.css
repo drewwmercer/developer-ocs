@@ -1,12 +1,28 @@
+.navbar-default {
+  background: white;
+  margin-top:5px;
+}
+
 .pageName {
-  color: white;
+  color: gray;
   vertical-align: middle;
   font-size: 20px;
+  float: right;
 }
 
-.pageName:hover, .pageName:active {
-  color: olivedrab !important;
+.pageName:hover,
+.pageName:active {
+  color: #2a2c31 !important;
 }
 
+.logo {
+  display: inline-block;
+  padding-right: 0px;
+}
 
-
+.branches {
+  display: inline-block;
+  width: 90%;
+  background: #878979;
+  vertical-align: middle;
+}
