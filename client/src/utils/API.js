@@ -1,10 +1,14 @@
 
 
 export default {
-  // // Gets all projects
+  // Gets all projects
   getProject: searchValues => {
     var queryURL = queryURLBase + searchValues.title;
+  },
 
+  // Gets all posted projects
+  getPosted: searchValues => {
+    var queryURL = queryURLBase + searchValues.title;
   },
 
   // Deletes the saved project with the given id
