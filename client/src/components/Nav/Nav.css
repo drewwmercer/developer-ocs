@@ -1,6 +1,6 @@
 .navbar-default {
   background: white;
-  margin-top:5px;
+  margin-top: 5px;
 }
 
 .pageName {
@@ -11,8 +11,8 @@
 }
 
 .pageName:hover {
-    color: #2a2c31 !important;
-    font-weight: bold;
+  color: #2a2c31 !important;
+  font-weight: bold;
 }
 
 .pageName:active {
@@ -26,9 +26,9 @@
     -o-animation: spinHorizontal 4s infinite linear;
     -webkit-animation: spinHorizontal 4s infinite linear;
     animation: spinHorizontal 4s infinite linear; */
-  }
-  
-  /* @keyframes spinHorizontal {
+}
+
+/* @keyframes spinHorizontal {
     0% {
       transform: rotateY(0deg);
     }
@@ -41,7 +41,7 @@
   display: inline-block;
   width: 90%;
   background: #878979;
-    border-radius: 3px;
-    border: 1px solid #2a2c31;
+  border-radius: 3px;
+  border: 1px solid #2a2c31;
   vertical-align: middle;
 }
