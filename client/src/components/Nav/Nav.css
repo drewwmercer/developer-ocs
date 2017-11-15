@@ -10,7 +10,11 @@
   float: right;
 }
 
-.pageName:hover,
+.pageName:hover {
+    color: #2a2c31 !important;
+    font-weight: bold;
+}
+
 .pageName:active {
   color: #2a2c31 !important;
 }
@@ -18,11 +22,26 @@
 .logo {
   display: inline-block;
   padding-right: 0px;
-}
+  /* -moz-animation: spinHorizontal 4s infinite linear;
+    -o-animation: spinHorizontal 4s infinite linear;
+    -webkit-animation: spinHorizontal 4s infinite linear;
+    animation: spinHorizontal 4s infinite linear; */
+  }
+  
+  /* @keyframes spinHorizontal {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  } */
 
 .branches {
   display: inline-block;
   width: 90%;
   background: #878979;
+    border-radius: 3px;
+    border: 1px solid #2a2c31;
   vertical-align: middle;
 }
