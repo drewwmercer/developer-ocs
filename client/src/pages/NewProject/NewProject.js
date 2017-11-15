@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { Input, FormBtn } from '../../components/Form';
+import './NewProject.css';
 // import API from '../../utils/API';
 
 class NewProject extends Component {
