@@ -11,7 +11,7 @@ const Nav = () => (
     </div>
 
     <div className="container-fluid branches">
-      <ul class="nav navbar-nav">
+      <ul className="nav navbar-nav">
         <li>
           <Link to={'/new'} className="pageName">
             Post a Project
