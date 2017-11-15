@@ -1,0 +1,10 @@
+.loggedin{
+  font-size: 30px;
+  color: gray;
+  font-size: 20px;
+}
+
+.pageName:hover {
+  color: #2a2c31 !important;
+  font-weight: bold;
+}
