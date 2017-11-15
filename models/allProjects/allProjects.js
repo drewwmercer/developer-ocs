@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const Sequelize = require('sequelize');
 const Schema = mongoose.Schema;
 
 const projectSchema = new Schema({
