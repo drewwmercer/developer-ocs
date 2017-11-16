@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
+import { SaveBtn } from '../../components/SaveBtn';
+import './AllProjects.css';
 // import API from '../../utils/API';
 
 class AllProjects extends Component {
@@ -41,7 +43,7 @@ class AllProjects extends Component {
   //   this.setState({
   //     [name]: value
   //   });
-  // };
+  
 
   render() {
     return (
@@ -57,30 +59,24 @@ class AllProjects extends Component {
                 <List className="searchResults">
                   {this.state.projects.map(project => {
                     return (
-                      <ListItem key={project._id} style={{ height: '67px' }}>
-                        <FormBtn
+                      <ListItem key={project._id}>
+                        {/* <SaveBtn
                           onClick={() =>
                             this.handleSaveProject(project._id, project.title)}
-                          style={{
-                            padding: 0,
-                            position: 'relative',
-                            left: '-3px',
-                            right: '10px'
-                          }}
                         >
-                          Save
-                        </FormBtn>
+                          {{ SaveBtn }}
+                        </SaveBtn> */}
                         &nbsp; &nbsp;
                         {project.date} &nbsp;
-                        <a href="" target="_blank">
-                          <strong>{project.title}</strong>
+                        <a href="" target="_blank" class="projTitle">
+                          {project.title}
                         </a>
                       </ListItem>
                     );
                   })}
                 </List>
               ) : (
-                <h3 style={{ marginLeft: 15 }}>No Results to Display</h3>
+                <h3>No Results to Display</h3>
               )}
             </div>
           </Col>
