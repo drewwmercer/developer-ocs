@@ -30,6 +30,8 @@ class NewProject extends Component {
   //   }
   // };
 
+  // <form method="post" id="myForm" action="dynaform.php" onSubmit="alert('Your project has been submitted.');" 
+
   // handleSaveProject = (title, url, id) => {
   //   API.saveProject({ title: title, url: url, projectId: id })
   //     .then(res => this.props.loadSaved())
