@@ -1,3 +1,9 @@
 .panel-primary > .panel-heading {
   background: #878979;
 }
+
+.panel-body {
+  background: #e5e0d3;
+      border: 1px solid #2a2c31;
+}
+
