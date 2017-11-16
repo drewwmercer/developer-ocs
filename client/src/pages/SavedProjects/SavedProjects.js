@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
-import { FormBtn } from '../../components/Form';
+// import { DeleteBtn } from '../../components/DeleteBtn';
+import './SavedProjects.css';
 // import API from '../../utils/API';
 
 class SavedProjects extends Component {
   state = {
-    savedProjects: []
+    savedProjects: ['stuff']
   };
 
   // componentDidMount() {
@@ -52,26 +53,16 @@ class SavedProjects extends Component {
             {this.state.savedProjects.length ? (
               <List className="savedResults">
                 {this.state.savedProjects.map(project => {
-                  return (
-                    <ListItem key={project._id} style={{ height: '67px' }}>
-                      <FormBtn
-                        onClick={() => this.deleteProjects(project._id)}
-                        style={{
-                          padding: 0,
-                          position: 'relative',
-                          left: '-3px',
-                          right: '10px'
-                        }}
-                      >
+                  return <ListItem key={project._id} className="listItem">
+                      {/* <DeleteBtn className="deleteBtn" onClick={() => this.deleteProjects(project._id)}>
                         Delete
-                      </FormBtn>
+                      </DeleteBtn> */}
                       &nbsp; &nbsp;
                       {project.date} &nbsp;
                       <a href="" target="_blank">
                         <strong>{project.title}</strong>
                       </a>
-                    </ListItem>
-                  );
+                    </ListItem>;
                 })}
               </List>
             ) : (
