@@ -4,14 +4,11 @@ import './Nav.css';
 
 const Nav = () => (
   <nav className="navbar navbar-default navbar-top">
-    <div className="container-fluid logo">
-      <a href="/">
-        <img src="/assets/images/devOCS.png" />
-      </a>
-    </div>
-
-    <div className="container-fluid branches">
-      <ul className="nav navbar-nav">
+    <a href="/">
+      <img src="/assets/images/devOCS.png" className='pull-left logo' />
+    </a>
+    <div className="branches">
+      <ul className="nav navbar-nav navbar-right">
         <li>
           <Link to={'/new'} className="pageName">
             Post a Project
