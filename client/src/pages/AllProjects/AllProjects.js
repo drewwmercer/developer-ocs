@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
-import { Input, FormBtn } from '../../components/Form';
+import { FormBtn } from '../../components/Form';
 // import API from '../../utils/API';
 
 class AllProjects extends Component {
