@@ -2,6 +2,7 @@ const db = require('../models');
 
 // Defining methods for the projectsController
 module.exports = {
+  
   // Save a project
   create: (req, res) => {
     console.log(JSON.stringify(req.body));

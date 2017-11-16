@@ -7,29 +7,29 @@ import './SavedProjects.css';
 
 class SavedProjects extends Component {
   state = {
-    savedProjects: ['stuff']
-  };
+    savedProjects: []
+  }
+    // componentDidMount() {
+    //   this.loadSavedProjects();
+    // }
 
-  // componentDidMount() {
-  //   this.loadSavedProjects();
-  // }
+    // loadSavedProjects = () => {
+    //   API.getSavedProjects()
+    //     .then(res =>
+    //       this.setState({
+    //         savedProjects: res.data
+    //       })
+    //     )
+    //     .catch(err => console.log(err));
+    // };
 
-  // loadSavedProjects = () => {
-  //   API.getSavedProjects()
-  //     .then(res =>
-  //       this.setState({
-  //         savedProjects: res.data
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  // // Deletes a project from the database with a given id, then reloads projects from the db
-  // deleteProject = id => {
-  //   API.deleteProject(id)
-  //     .then(res => this.loadSavedProjects())
-  //     .catch(err => console.log(err));
-  // };
+    // // Deletes a project from the database with a given id, then reloads projects from the db
+    // deleteProject = id => {
+    //   API.deleteProject(id)
+    //     .then(res => this.loadSavedProjects())
+    //     .catch(err => console.log(err));
+    // };
+ 
 
   render() {
     return (
@@ -53,7 +53,8 @@ class SavedProjects extends Component {
             {this.state.savedProjects.length ? (
               <List className="savedResults">
                 {this.state.savedProjects.map(project => {
-                  return <ListItem key={project._id} className="listItem">
+                  return (
+                    <ListItem key={project._id} className="listItem">
                       {/* <DeleteBtn className="deleteBtn" onClick={() => this.deleteProjects(project._id)}>
                         Delete
                       </DeleteBtn> */}
@@ -62,11 +63,12 @@ class SavedProjects extends Component {
                       <a href="" target="_blank">
                         <strong>{project.title}</strong>
                       </a>
-                    </ListItem>;
+                    </ListItem>
+                  );
                 })}
               </List>
             ) : (
-              <h3 style={{ marginLeft: 15 }}>No Results to Display</h3>
+              <h3>No Results to Display</h3>
             )}
           </div>
         </Col>
