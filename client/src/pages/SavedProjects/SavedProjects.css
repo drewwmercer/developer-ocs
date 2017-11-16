@@ -1,0 +1,19 @@
+.savedResults {
+  background: #e5e0d3;
+  border: 1px solid #2a2c31;
+}
+
+.list-group-item {
+  background: #e5e0d3;
+}
+
+.listItem {
+  height: 67px;
+}
+
+.formBtn {
+  padding: 0;
+  position: 'relative';
+  left: '-3px';
+  right: '10px';
+}
