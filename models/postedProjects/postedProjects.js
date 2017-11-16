@@ -5,7 +5,7 @@ const projectSchema = new Schema({
   projectId: { type: String, required: true },
   date: { type: Date, required: true },
   title: { type: String, required: true },
-  description: { type: String, required: true },
+  details: { type: String, required: true },
   userId: { type: String, required: true }
 });
 
