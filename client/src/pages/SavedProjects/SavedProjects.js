@@ -39,7 +39,7 @@ class SavedProjects extends Component {
           <br />
 
           {/* This panel will initially be made up of a panel and wells for each of the projects retrieved */}
-          <div className="panel panel-primary">
+          <div className="panel">
             {/* Panel Heading for the saved projects box */}
             <div className="panel-heading">
               <h3 className="panel-title">

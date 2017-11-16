@@ -51,7 +51,7 @@ class NewProject extends Component {
           <Col size="sm-12">
             <br />
             {/* Handling the project post */}
-            <div className="panel panel-primary">
+            <div className="panel">
               <div className="panel-heading">
                 <h3 className="panel-title">
                   <strong>
