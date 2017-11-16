@@ -1,23 +1,24 @@
 .panel-heading {
   background: #878979;
-  border: 1px solid #2a2c31 !important;
+  border-bottom: 2px solid #2a2c31 !important;
 }
 
 .panel {
   background: #e5e0d3;
-  border: 1px solid #2a2c31;
+  border: 2px solid #2a2c31;
 }
 
 .savedResults {
   background: #e5e0d3;
-  border: 1px solid #2a2c31;
+  border: 2px solid #2a2c31;
 }
 
-.formBtn {
-  padding: 0;
-  position: 'relative';
-  left: '-3px';
-  right: '10px';
+.list-item {
+  height: 67px;
+}
+
+.title {
+  font-weight: bold;
 }
 
 h3 {

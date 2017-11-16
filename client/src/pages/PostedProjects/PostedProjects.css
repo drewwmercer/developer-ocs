@@ -1,2 +1,14 @@
   /* background: #e5e0d3;
   border: 1px solid #2a2c31; */
+
+.list-item {
+  height: 67px;
+}
+
+  h3 {
+    margin-left: 15px;
+  }
+
+  .title {
+    font-weight: bold;
+  }
