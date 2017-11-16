@@ -1,14 +1,16 @@
-.savedResults {
+.panel-heading {
+  background: #878979;
+  border: 1px solid #2a2c31;
+}
+
+.panel-body {
   background: #e5e0d3;
   border: 1px solid #2a2c31;
 }
 
-.list-group-item {
+.savedResults {
   background: #e5e0d3;
-}
-
-.listItem {
-  height: 67px;
+  border: 1px solid #2a2c31;
 }
 
 .formBtn {
