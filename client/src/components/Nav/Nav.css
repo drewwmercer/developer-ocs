@@ -16,6 +16,7 @@
 .logo {
   position: absolute;
   padding: 0px;
+  width: 150px;
 }
 
 .branches {
@@ -24,8 +25,8 @@
   margin-right: 0px;
   width: 100%;
   background: #878979;
-  border-radius: 3px 0px 0px 3px;
   border: 1px solid #2a2c31;
+  border-left: none;
   border-right: none;
 }
 
@@ -48,5 +49,3 @@
 .pageName:active {
   color: #2a2c31 !important;
 }
-
-
