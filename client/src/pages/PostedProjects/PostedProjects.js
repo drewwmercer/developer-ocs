@@ -53,29 +53,23 @@ class PostedProjects extends Component {
               <List className="savedResults">
                 {this.state.postedProjects.map(project => {
                   return (
-                    <ListItem key={project._id} style={{ height: '67px' }}>
+                    <ListItem key={project._id} class="list-item">
                       <FormBtn
                         onClick={() => this.deleteProjects(project._id)}
-                        style={{
-                          padding: 0,
-                          position: 'relative',
-                          left: '-3px',
-                          right: '10px'
-                        }}
                       >
                         Delete
                       </FormBtn>
                       &nbsp; &nbsp;
                       {project.date} &nbsp;
-                      <a href="" target="_blank">
-                        <strong>{project.title}</strong>
+                      <a href="" target="_blank" class="title">
+                        {project.title}
                       </a>
                     </ListItem>
                   );
                 })}
               </List>
             ) : (
-              <h3 style={{ marginLeft: 15 }}>No Results to Display</h3>
+              <h3>No Results to Display</h3>
             )}
           </div>
         </Col>

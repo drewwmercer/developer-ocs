@@ -54,14 +54,14 @@ class SavedProjects extends Component {
               <List className="savedResults">
                 {this.state.savedProjects.map(project => {
                   return (
-                    <ListItem key={project._id} className="listItem">
+                    <ListItem key={project._id} className="list-item">
                       {/* <DeleteBtn className="deleteBtn" onClick={() => this.deleteProjects(project._id)}>
                         Delete
                       </DeleteBtn> */}
                       &nbsp; &nbsp;
                       {project.date} &nbsp;
-                      <a href="" target="_blank">
-                        <strong>{project.title}</strong>
+                      <a href="" target="_blank" class="title">
+                        {project.title}
                       </a>
                     </ListItem>
                   );
