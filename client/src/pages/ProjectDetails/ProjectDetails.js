@@ -23,10 +23,9 @@ render() {
                       </DeleteBtn> */}
                       &nbsp; &nbsp;
                       {project.date} &nbsp;
-                      <a href="" target="_blank">
-                        <strong>{project.title}</strong>
-                      </a>
-                      {project.ProjectDetails}
+                      <strong>{project.title}</strong>
+                      <br />
+                      {project.details}
                     </ListItem>;
                 })}
               </List>
