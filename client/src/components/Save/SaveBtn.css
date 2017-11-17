@@ -1,3 +1,5 @@
 .save-btn {
  content: url("/../assets/images/save.png");
+ width: 20px;
+ vertical-align: middle;
 }
