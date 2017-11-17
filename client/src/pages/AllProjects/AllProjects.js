@@ -2,34 +2,31 @@ import React, { Component } from 'react';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
-import { SaveBtn } from '../../components/SaveBtn';
+import { SaveBtn } from '../../components/Save';
+import { ReplyBtn } from '../../components/Reply';
 import './AllProjects.css';
-// import API from '../../utils/API';
+import API from '../../utils/API';
 
 class AllProjects extends Component {
   state = {
     projects: []
   };
 
+  componentDidMount() {
+    this.loadAllProjects();
+  }
+
   // When the form is submitted, use the API.saveProject method to save the project data
   // Then reload projects from the database
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   if (this.state.title) {
-  //     API.getProjects({
-  //       title: this.state.title,
-  //       projDesc: this.state.projDesc,
-  //     })
-  //       .then(res =>
-  //         this.setState({
-  //           projects: res.data.response.docs,
-  //           title: '',
-  //           projDesc: '',
-  //         })
-  //       )
-  //       .catch(err => console.log(err));
-  //   }
-  // };
+  loadAllProjects = () => {
+    API.getProjects()
+      .then(res =>
+        this.setState({
+          projects: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  };
 
   // handleSaveProject = (title, id) => {
   //   API.saveProject({ title: title, projectId: id })
@@ -43,7 +40,6 @@ class AllProjects extends Component {
   //   this.setState({
   //     [name]: value
   //   });
-  
 
   render() {
     return (
@@ -60,15 +56,18 @@ class AllProjects extends Component {
                   {this.state.projects.map(project => {
                     return (
                       <ListItem key={project._id}>
-                        {/* <SaveBtn
+                        <SaveBtn
                           onClick={() =>
                             this.handleSaveProject(project._id, project.title)}
-                        >
-                          {{ SaveBtn }}
-                        </SaveBtn> */}
+                        />
+                        &nbsp; &nbsp;
+                        <ReplyBtn
+                          onClick={() =>
+                            this.handleSaveProject(project._id, project.title)}
+                        />
                         &nbsp; &nbsp;
                         {project.date} &nbsp;
-                        <a href="" target="_blank" class="projTitle">
+                        <a href="" class="projTitle">
                           {project.title}
                         </a>
                       </ListItem>
@@ -76,7 +75,11 @@ class AllProjects extends Component {
                   })}
                 </List>
               ) : (
-                <h3>No Results to Display</h3>
+                <List>
+                  <ListItem>
+                    <h3 class="noRes">No Results to Display</h3>
+                  </ListItem>
+                </List>
               )}
             </div>
           </Col>

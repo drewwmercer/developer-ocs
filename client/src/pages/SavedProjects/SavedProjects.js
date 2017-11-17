@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
-// import { DeleteBtn } from '../../components/DeleteBtn';
+import { SaveBtn } from '../../components/Save';
+import { ReplyBtn } from '../../components/Reply';
+import API from '../../utils/API';
 import './SavedProjects.css';
-// import API from '../../utils/API';
+
 
 class SavedProjects extends Component {
   state = {
     savedProjects: []
+  };
+
+  componentDidMount() {
+    this.loadSavedProjects();
   }
-    // componentDidMount() {
-    //   this.loadSavedProjects();
-    // }
 
-    // loadSavedProjects = () => {
-    //   API.getSavedProjects()
-    //     .then(res =>
-    //       this.setState({
-    //         savedProjects: res.data
-    //       })
-    //     )
-    //     .catch(err => console.log(err));
-    // };
+  loadSavedProjects = () => {
+    API.getSavedProjects()
+      .then(res =>
+        this.setState({
+          savedProjects: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  };
 
-    // // Deletes a project from the database with a given id, then reloads projects from the db
-    // deleteProject = id => {
-    //   API.deleteProject(id)
-    //     .then(res => this.loadSavedProjects())
-    //     .catch(err => console.log(err));
-    // };
- 
+  // // Deletes a project from the database with a given id, then reloads projects from the db
+  // deleteProject = id => {
+  //   API.deleteProject(id)
+  //     .then(res => this.loadSavedProjects())
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
     return (
@@ -53,22 +55,20 @@ class SavedProjects extends Component {
             {this.state.savedProjects.length ? (
               <List className="savedResults">
                 {this.state.savedProjects.map(project => {
-                  return (
-                    <ListItem key={project._id} className="list-item">
-                      {/* <DeleteBtn className="deleteBtn" onClick={() => this.deleteProjects(project._id)}>
-                        Delete
-                      </DeleteBtn> */}
+                  return <ListItem key={project._id} className="list-item">
+                      <SaveBtn onClick={() => this.handleSaveProject(project._id, project.title)} />
+                      &nbsp; &nbsp;
+                      <ReplyBtn onClick={() => this.handleSaveProject(project._id, project.title)} />
                       &nbsp; &nbsp;
                       {project.date} &nbsp;
-                      <a href="" target="_blank" class="title">
+                      <a href="" class="projTitle">
                         {project.title}
                       </a>
-                    </ListItem>
-                  );
+                    </ListItem>;
                 })}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <List><ListItem><h3 class="noRes">No Results to Display</h3></ListItem></List>
             )}
           </div>
         </Col>

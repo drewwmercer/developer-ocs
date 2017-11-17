@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
+import { SaveBtn } from '../../components/Save';
+import './PostedProjects.css';
 // import API from '../../utils/API';
 
 class PostedProjects extends Component {
@@ -38,7 +40,7 @@ class PostedProjects extends Component {
           <br />
 
           {/* This panel will initially be made up of a panel and wells for each of the projects retrieved */}
-          <div className="panel panel-primary">
+          <div className="panel">
             {/* Panel Heading for the saved projects box */}
             <div className="panel-heading">
               <h3 className="panel-title">
@@ -52,24 +54,21 @@ class PostedProjects extends Component {
             {this.state.postedProjects.length ? (
               <List className="savedResults">
                 {this.state.postedProjects.map(project => {
-                  return (
-                    <ListItem key={project._id} class="list-item">
-                      <FormBtn
-                        onClick={() => this.deleteProjects(project._id)}
-                      >
-                        Delete
-                      </FormBtn>
+                  return <ListItem key={project._id} class="list-item">
+                      <SaveBtn
+                          onClick={() =>
+                            this.handleSaveProject(project._id, project.title)}
+                        />
                       &nbsp; &nbsp;
                       {project.date} &nbsp;
-                      <a href="" target="_blank" class="title">
+                      <a href="" class="title">
                         {project.title}
                       </a>
-                    </ListItem>
-                  );
+                    </ListItem>;
                 })}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+               <List><ListItem><h3 class="noRes">No Results to Display</h3></ListItem></List>
             )}
           </div>
         </Col>
