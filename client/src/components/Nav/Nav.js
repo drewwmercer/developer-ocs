@@ -5,13 +5,18 @@ import './Nav.css';
 const Nav = () => (
   <nav className="navbar navbar-default navbar-top">
     <a href="/">
-      <img src="/assets/images/devOCS.png" className='pull-left logo' />
+      <img src="/assets/images/devOCS.png" className="pull-left logo" />
     </a>
     <div className="branches">
       <ul className="nav navbar-nav navbar-right">
         <li>
           <Link to={'/new'} className="pageName">
             Post a Project
+          </Link>
+        </li>
+        <li>
+          <Link to={'/posted'} className="pageName">
+            Posted Projects
           </Link>
         </li>
         <li>
