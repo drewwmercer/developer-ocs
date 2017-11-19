@@ -55,20 +55,20 @@ class AllProjects extends Component {
                 <List className="searchResults">
                   {this.state.projects.map(project => {
                     return (
-                      <ListItem key={project._id}>
+                      <ListItem key={project.id}>
                         <SaveBtn
                           onClick={() =>
-                            this.handleSaveProject(project._id, project.title)}
+                            this.handleSaveProject(project.id, project.project_title)}
                         />
                         &nbsp; &nbsp;
                         <ReplyBtn
                           onClick={() =>
-                            this.handleSaveProject(project._id, project.title)}
+                            this.handleSaveProject(project.id, project.project_title)}
                         />
                         &nbsp; &nbsp;
                         {project.date} &nbsp;
                         <a href="" class="projTitle">
-                          {project.title}
+                          {project.project_title}
                         </a>
                       </ListItem>
                     );

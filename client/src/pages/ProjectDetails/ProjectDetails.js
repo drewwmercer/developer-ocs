@@ -14,7 +14,7 @@ render() {
             {this.state.savedProjects.length ? (
               <List className="savedResults">
                 {this.state.savedProjects.map(project => {
-                  return <ListItem key={project._id} className="listItem">
+                  return <ListItem key={project.id} className="listItem">
                     {/* <SaveBtn className="saveBtn" onClick={() => this.saveProjects(project._id)}>
                         {{SaveBtn}}
                       </SaveBtn> */}

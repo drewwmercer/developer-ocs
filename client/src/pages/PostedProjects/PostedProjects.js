@@ -54,15 +54,15 @@ class PostedProjects extends Component {
             {this.state.postedProjects.length ? (
               <List className="savedResults">
                 {this.state.postedProjects.map(project => {
-                  return <ListItem key={project._id} class="list-item">
+                  return <ListItem key={project.id} class="list-item">
                       <SaveBtn
                           onClick={() =>
-                            this.handleSaveProject(project._id, project.title)}
+                            this.handleSaveProject(project.id, project.project_title)}
                         />
                       &nbsp; &nbsp;
                       {project.date} &nbsp;
                       <a href="" class="title">
-                        {project.title}
+                        {project.project_title}
                       </a>
                     </ListItem>;
                 })}
