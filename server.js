@@ -1,19 +1,24 @@
+// *****************************************************************************
 // Dependencies
+// =============================================================
+
 const express = require('express');
 const bodyParser = require('body-parser');
-const mySql = require('mysql');
-const Sequelize = require('sequelize');
-const path = require('path');
-// const Model = require('./models/');
-const request = require('request');
 const routes = require('./routes');
+
+// Sets up the Express App
+// =============================================================
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Requiring our models for syncing
+var db = require("./models");
 
-// Use body parser with our app
-app.use(bodyParser.urlencoded({extended: false}));
+// Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Serve up static assets
 app.use(express.static("client/build"));
@@ -22,8 +27,10 @@ app.use(express.static("client/build"));
 app.use(routes);
 
 // Start the API server
-app.listen(PORT, () => {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  });
 });
 
 module.exports = app;
