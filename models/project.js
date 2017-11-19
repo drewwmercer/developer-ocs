@@ -1,8 +1,11 @@
-module.exports = function(sequelize, DataTypes) {
+const Sequelize = require ("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
   const Project = sequelize.define('Project', {
     posted_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
+      type: Sequelize.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.NOW
     },
     project_title: {
       type: DataTypes.STRING,
@@ -12,13 +15,20 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    project_owner: {
-      type: DataTypes.INTEGER
-    },
     primary_language: {
       type: DataTypes.STRING
     }
   });
+
+  Project.associate = (models) => {
+    // Post should belong to a project_owner
+    // A Post can't be created without an project_owner due to the foreign key constraint
+    Project.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Project;
 };
