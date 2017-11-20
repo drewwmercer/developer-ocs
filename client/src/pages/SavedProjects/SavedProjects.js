@@ -53,31 +53,18 @@ class SavedProjects extends Component {
             {/* This main panel will hold each of the resulting projects */}
             {this.state.savedProjects.length ? (
               <List className="savedResults">
-                {this.state.savedProjects.map(project => {
-                  return (
-                    <ListItem key={project.id} className="list-item">
-                      <SaveBtn
-                        onClick={() =>
-                          this.handleSaveProject(
-                            project.id,
-                            project.project_title
-                          )}
-                      />
+                {this.state.savedProjects.map(saved => {
+                  return <ListItem key={saved.id} className="list-item">
+                      <SaveBtn onClick={() => this.handleSaveProject(saved.id, saved.Project.project_title)} />
                       &nbsp; &nbsp;
-                      <ReplyBtn
-                        onClick={() =>
-                          this.handleSaveProject(
-                            project.id,
-                            project.project_title
-                          )}
-                      />
+                      <ReplyBtn onClick={() => this.handleSaveProject(saved.id, saved.Project.project_title)} />
                       &nbsp; &nbsp;
-                      {project.posted_date} &nbsp;
-                      <a href="" class="projTitle">
-                        {project.project_title}
+                      {saved.Project.id} &nbsp;
+                      {saved.Project.posted_date} &nbsp;
+                      <a href="" className="projTitle">
+                        {saved.Project.project_title}
                       </a>
-                    </ListItem>
-                  );
+                    </ListItem>;
                 })}
               </List>
             ) : (
