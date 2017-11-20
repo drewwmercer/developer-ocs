@@ -22,7 +22,7 @@ render() {
                         ✗
                       </DeleteBtn> */}
                       &nbsp; &nbsp;
-                      {project.date} &nbsp;
+                      {project.posted_date} &nbsp;
                       <strong>{project.title}</strong>
                       <br />
                       {project.details}
