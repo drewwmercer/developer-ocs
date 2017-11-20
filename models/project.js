@@ -18,9 +18,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    project_owner: {
-      type: DataTypes.INTEGER
-    },
     primary_language: {
       type: DataTypes.STRING
     }
