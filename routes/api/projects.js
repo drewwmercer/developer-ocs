@@ -9,7 +9,7 @@ router
   .post(projectsController.create)
   .get(projectsController.findAll);
 
-  // Pulls and views saved/replied to projects
+  // Creates a saved/replied to projects
 router.route('/saved')
 .post(savedProjectController.saveProject);
 
@@ -19,7 +19,7 @@ router
   .get(projectsController.findPosted)
   .delete(projectsController.removePostedProject);
 
-// Removes the save on a project
+// Removes and views saved projects
 router
   .route('/saved/:id')
   .get(savedProjectController.findSaved)
