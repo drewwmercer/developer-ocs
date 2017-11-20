@@ -6,7 +6,6 @@ import { ReplyBtn } from '../../components/Reply';
 import API from '../../utils/API';
 import './SavedProjects.css';
 
-
 class SavedProjects extends Component {
   state = {
     savedProjects: []
@@ -55,20 +54,38 @@ class SavedProjects extends Component {
             {this.state.savedProjects.length ? (
               <List className="savedResults">
                 {this.state.savedProjects.map(project => {
-                  return <ListItem key={project.id} className="list-item">
-                      <SaveBtn onClick={() => this.handleSaveProject(project.id, project.project_title)} />
+                  return (
+                    <ListItem key={project.id} className="list-item">
+                      <SaveBtn
+                        onClick={() =>
+                          this.handleSaveProject(
+                            project.id,
+                            project.project_title
+                          )}
+                      />
                       &nbsp; &nbsp;
-                      <ReplyBtn onClick={() => this.handleSaveProject(project.id, project.project_title)} />
+                      <ReplyBtn
+                        onClick={() =>
+                          this.handleSaveProject(
+                            project.id,
+                            project.project_title
+                          )}
+                      />
                       &nbsp; &nbsp;
-                      {project.date} &nbsp;
+                      {project.posted_date} &nbsp;
                       <a href="" class="projTitle">
                         {project.project_title}
                       </a>
-                    </ListItem>;
+                    </ListItem>
+                  );
                 })}
               </List>
             ) : (
-              <List><ListItem><h3 class="noRes">No Results to Display</h3></ListItem></List>
+              <List>
+                <ListItem>
+                  <h3 class="noRes">No Results to Display</h3>
+                </ListItem>
+              </List>
             )}
           </div>
         </Col>

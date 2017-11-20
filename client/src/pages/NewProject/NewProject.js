@@ -7,7 +7,7 @@ import './NewProject.css';
 
 class NewProject extends Component {
   state = {
-    projects: [],
+    projects: []
   };
 
   // When the form is submitted, use the API.saveProject method to save the project data
@@ -30,7 +30,7 @@ class NewProject extends Component {
   //   }
   // };
 
-  // <form method="post" id="myForm" action="dynaform.php" onSubmit="alert('Your project has been submitted.');" 
+  // <form method="post" id="myForm" action="dynaform.php" onSubmit="alert('Your project has been submitted.');"
 
   // handleSaveProject = (title, url, id) => {
   //   API.saveProject({ title: title, url: url, projectId: id })
@@ -82,7 +82,9 @@ class NewProject extends Component {
                   <FormBtn
                     disabled={!this.state.title}
                     onClick={this.handleFormSubmit}
-                  >Submit</FormBtn>
+                  >
+                    Submit
+                  </FormBtn>
                 </form>
               </div>
             </div>

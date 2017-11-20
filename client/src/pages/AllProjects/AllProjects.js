@@ -8,7 +8,7 @@ import './AllProjects.css';
 import API from '../../utils/API';
 
 class AllProjects extends Component {
-  state = {
+  state =  {
     projects: []
   };
 
@@ -54,30 +54,23 @@ class AllProjects extends Component {
               {this.state.projects.length ? (
                 <List className="searchResults">
                   {this.state.projects.map(project => {
-                    return (
-                      <ListItem key={project.id}>
-                        <SaveBtn
-                          onClick={() =>
-                            this.handleSaveProject(project.id, project.project_title)}
-                        />
+                    return <ListItem key={project.id}>
+                        <SaveBtn onClick={() => this.handleSaveProject(project.id, project.project_title)} />
                         &nbsp; &nbsp;
-                        <ReplyBtn
-                          onClick={() =>
-                            this.handleSaveProject(project.id, project.project_title)}
-                        />
+                        <ReplyBtn onClick={() => this.handleSaveProject(project.id, project.project_title)} />
                         &nbsp; &nbsp;
-                        {project.date} &nbsp;
-                        <a href="" class="projTitle">
+                        {project.id} &nbsp;
+                        {project.posted_date} &nbsp;
+                        <a href="" className="projTitle">
                           {project.project_title}
                         </a>
-                      </ListItem>
-                    );
+                      </ListItem>;
                   })}
                 </List>
               ) : (
                 <List>
                   <ListItem>
-                    <h3 class="noRes">No Results to Display</h3>
+                    <h3 className="noRes">No Results to Display</h3>
                   </ListItem>
                 </List>
               )}
