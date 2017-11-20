@@ -8,7 +8,7 @@ import './AllProjects.css';
 import API from '../../utils/API';
 
 class AllProjects extends Component {
-  state =  {
+  state = {
     projects: []
   };
 
@@ -28,19 +28,6 @@ class AllProjects extends Component {
       .catch(err => console.log(err));
   };
 
-  // handleSaveProject = (title, id) => {
-  //   API.saveProject({ title: title, projectId: id })
-  //     .then(res => this.props.loadSaved())
-  //     .catch(err => console.log(err));
-  // };
-
-  // // Handles updating component state when the user types into the input field
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-
   render() {
     return (
       <div>
@@ -54,17 +41,31 @@ class AllProjects extends Component {
               {this.state.projects.length ? (
                 <List className="searchResults">
                   {this.state.projects.map(project => {
-                    return <ListItem key={project.id}>
-                        <SaveBtn onClick={() => this.handleSaveProject(project.id, project.project_title)} />
+                    return (
+                      <ListItem key={project.id}>
+                        <SaveBtn
+                          onClick={() =>
+                            this.handleSaveProject(
+                              project.id,
+                              project.project_title
+                            )}
+                        />
                         &nbsp; &nbsp;
-                        <ReplyBtn onClick={() => this.handleSaveProject(project.id, project.project_title)} />
+                        <ReplyBtn
+                          onClick={() =>
+                            this.handleSaveProject(
+                              project.id,
+                              project.project_title
+                            )}
+                        />
                         &nbsp; &nbsp;
                         {project.id} &nbsp;
                         {project.posted_date} &nbsp;
                         <a href="" className="projTitle">
                           {project.project_title}
                         </a>
-                      </ListItem>;
+                      </ListItem>
+                    );
                   })}
                 </List>
               ) : (
