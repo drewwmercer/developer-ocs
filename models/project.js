@@ -1,34 +1,27 @@
-const Sequelize = require ("sequelize");
-
-module.exports = (sequelize, DataTypes) => {
+module.exports = function(sequelize, DataTypes) {
   const Project = sequelize.define('Project', {
     posted_date: {
-      type: Sequelize.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.NOW
+      type: DataTypes.DATEONLY,
+      allowNull: false
     },
     project_title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+          len: [1,140]
+      }
     },
     project_details: {
       type: DataTypes.STRING,
       allowNull: false
     },
+    project_owner: {
+      type: DataTypes.INTEGER
+    },
     primary_language: {
       type: DataTypes.STRING
     }
   });
-
-  Project.associate = (models) => {
-    // Post should belong to a project_owner
-    // A Post can't be created without an project_owner due to the foreign key constraint
-    Project.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
 
   return Project;
 };
