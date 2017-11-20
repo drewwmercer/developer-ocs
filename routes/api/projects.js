@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const projectsController = require('../../controllers/projectsController');
+const savedProjectController = require('../../controllers/savedProjectController');
+
 
 // Create new project post and returns all project posts
 router
@@ -7,18 +9,20 @@ router
   .post(projectsController.create)
   .get(projectsController.findAll);
 
-  // Pulls saved/replied to projects
-router.route('/saved').get(projectsController.findSaved);
+  // Pulls and views saved/replied to projects
+router.route('/saved')
+.post(savedProjectController.saveProject);
 
 // Pulls all posted projects by user
-// router
-// .route('/:id')
-// .get(projectsController.findPosted);
+router
+  .route('/:id')
+  .get(projectsController.findPosted)
+  .delete(projectsController.removePostedProject);
 
-// Saves or removes the save on a project
-// router
-//   .route('/saved/:id')
-//   .post(projectsController.saveProject)
-//   .delete(projectsController.remove);
+// Removes the save on a project
+router
+  .route('/saved/:id')
+  .get(savedProjectController.findSaved)
+  .delete(savedProjectController.removeSavedProject);
 
 module.exports = router;
