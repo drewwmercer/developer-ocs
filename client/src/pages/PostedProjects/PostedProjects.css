@@ -17,6 +17,15 @@
   height: 67px;
 }
 
+.delBtn {
+  background: red;
+}
+
+.editBtn {
+  background: blue;
+}
+
+
 .title {
   font-weight: bold;
 }

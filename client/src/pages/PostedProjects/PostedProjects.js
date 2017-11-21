@@ -4,33 +4,41 @@ import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
 import { SaveBtn } from '../../components/Save';
 import './PostedProjects.css';
-// import API from '../../utils/API';
+import API from '../../utils/API';
 
 class PostedProjects extends Component {
   state = {
     postedProjects: []
   };
 
-  // componentDidMount() {
-  //   this.loadPostedProjects();
-  // }
+  componentDidMount() {
+    this.loadPostedProjects();
+  }
 
-  // loadPostedProjects = () => {
-  //   API.getPostedProjects()
-  //     .then(res =>
-  //       this.setState({
-  //         postedProjects: res.data
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
+  // Displays all posted projects for user
+  loadPostedProjects = () => {
+    API.getPosted()
+      .then(res =>
+        this.setState({
+          postedProjects: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
+  // Edit a post
+  editPostedProject = id => {
+    API.editPostedProject(id)
+      .then(res => this.loadPostedProjects())
+      .catch(err => console.log(err));
+  };
 
   // // Deletes a project from the database with a given id, then reloads projects from the db
-  // deleteProject = id => {
-  //   API.deleteProject(id)
-  //     .then(res => this.loadPostedProjects())
-  //     .catch(err => console.log(err));
-  // };
+  removePostedProject = id => {
+    API.removePostedProject(id)
+      .then(res => this.loadPostedProjects())
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -56,13 +64,23 @@ class PostedProjects extends Component {
                 {this.state.postedProjects.map(project => {
                   return (
                     <ListItem key={project.id} class="list-item">
-                      <SaveBtn
+                      <FormBtn
+                        className="editBtn"
                         onClick={() =>
-                          this.handleSaveProject(
+                          this.handleeditPostedProject(
                             project.id,
                             project.project_title
                           )}
-                      />
+                      >
+                        ?
+                      </FormBtn>
+                      &nbsp; &nbsp;
+                      <FormBtn
+                        className="delBtn"
+                        onClick={() => this.removePostedProject(project.id)}
+                      >
+                        X
+                      </FormBtn>
                       &nbsp; &nbsp;
                       {project.date} &nbsp;
                       <a href="" class="title">
