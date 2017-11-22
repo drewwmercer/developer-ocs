@@ -10,7 +10,7 @@
   "production": {
     "username": "n1vmsn20iuxbt7vr",
     "password": "nmfr1v4xswczhbkj",
-    "database": "developer_ocs",
+    "database": "u8oj9kuz5cbk8yd6",
     "host": "otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "port": 3306
