@@ -31,7 +31,7 @@ export default {
 
   // Gets saved projects
   getSavedProjects: id => {
-    return axios.get('/api/projects/saved/3'); // ToDo: need to update with dynamic userId axios.get('/api/projects/saved/ + searchValues')
+    return axios.get('/api/projects/saved/2'); // ToDo: need to update with dynamic userId axios.get('/api/projects/saved/ + searchValues')
   },
 
   // Deletes the saved project with the given id
