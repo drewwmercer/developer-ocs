@@ -17,6 +17,7 @@ const App = () => (
         <Route path="/loggedin" component={LoggedIn} />
         <Route path="/saved" component={SavedProjects} />
         <Route path="/new" component={NewProject} />
+        <Route path="/edit/:id" component={NewProject} />
         <Route path="/" component={AllProjects} />
       </Switch>
     </Container>
