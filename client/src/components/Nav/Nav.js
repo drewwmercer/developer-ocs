@@ -10,6 +10,11 @@ const Nav = () => (
     <div className="branches">
       <ul className="nav navbar-nav navbar-right">
         <li>
+          <Link to={'/allprojects'} className="pageName">
+            View All Projects
+          </Link>
+        </li>
+        <li>
           <Link to={'/new'} className="pageName">
             Post a Project
           </Link>
@@ -26,7 +31,7 @@ const Nav = () => (
         </li>
         <li>
           <Link to={'/'} className="pageName">
-            Log In
+            Log Out
           </Link>
         </li>
       </ul>
