@@ -6,6 +6,7 @@ import PostedProjects from './pages/PostedProjects';
 import SavedProjects from './pages/SavedProjects';
 import AllProjects from './pages/AllProjects';
 import NewProject from './pages/NewProject';
+import LogIn from './pages/LogIn';
 import Nav from './components/Nav';
 
 const App = () => (
@@ -18,7 +19,8 @@ const App = () => (
         <Route path="/saved" component={SavedProjects} />
         <Route path="/new" component={NewProject} />
         <Route path="/edit/:id" component={NewProject} />
-        <Route path="/" component={AllProjects} />
+        <Route path="/allprojects" component={AllProjects} />>
+        <Route path="/" component={LogIn} />
       </Switch>
     </Container>
   </Router>
