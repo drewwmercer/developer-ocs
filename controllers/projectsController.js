@@ -1,5 +1,4 @@
 const db = require('../models');
-const app = require('../server');
 
 // Defining methods for the projectsController
 module.exports = {
