@@ -1,0 +1,25 @@
+.img__wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.img__description {
+  position: absolute;
+  bottom: -45px;
+  text-align: center;
+  height: 35px;
+  vertical-align: middle;
+  color: #878979;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.github {
+    min-width: 62px;
+}
