@@ -4,9 +4,9 @@ import './Nav.css';
 
 const Nav = () => (
   <nav className="navbar navbar-default navbar-top">
-    <a href="/">
+    <Link to={'/allprojects'}>
       <img src="/assets/images/devOCS.png" className="pull-left logo" />
-    </a>
+    </Link>
     <div className="branches">
       <ul className="nav navbar-nav navbar-right">
         <li>
@@ -30,9 +30,9 @@ const Nav = () => (
           </Link>
         </li>
         <li>
-          <Link to={'/'} className="pageName">
+          <a href='/auth/logout' rel="external" className="pageName">
             Log Out
-          </Link>
+          </a>
         </li>
       </ul>
     </div>
