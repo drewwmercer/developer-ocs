@@ -1,6 +1,11 @@
 import axios from 'axios';
 
 export default {
+  // Check if user is logged in
+  isLoggedIn: () => {
+    return axios.get('/auth/loggedIn');
+  }, 
+
   // Gets project details
   getDetails: searchValues => {},
 
@@ -26,12 +31,12 @@ export default {
 
   // Gets all posted projects
   getPosted: id => {
-    return axios.get('/api/projects/3');
+    return axios.get('/api/projects/' + id);
   },
 
   // Gets saved projects
   getSavedProjects: id => {
-    return axios.get('/api/projects/saved/2'); // ToDo: need to update with dynamic userId axios.get('/api/projects/saved/ + searchValues')
+    return axios.get('/api/projects/saved/' + id);
   },
 
   // Deletes the saved project with the given id
