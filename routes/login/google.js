@@ -10,7 +10,8 @@ router.route('/google/callback').get(passport.authenticate('google', {
   failureRedirect: '/'
 }),
 (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  res.redirect('/allProjects');
+  //res.sendFile(path.join(__dirname, '../../client/build/index.html'));
 });
 
 module.exports = router;
