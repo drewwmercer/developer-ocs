@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Time from 'react-time-format';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
@@ -8,16 +9,26 @@ import API from '../../utils/API';
 
 class PostedProjects extends Component {
   state = {
-    postedProjects: []
+    postedProjects: [],
+    user: {}
   };
 
+  // Checks to see if user is logged in. If so, proceed to requested page, if not, redirect to login page
   componentDidMount() {
-    this.loadPostedProjects();
+    API.isLoggedIn().then(res => {
+      console.log(res);
+      if (res.data.statusCode !== 401) {
+        this.setState({ user: res.data });
+        this.loadPostedProjects();
+      } else {
+        window.location.href = '/';
+      }
+    });
   }
 
   // Displays all posted projects for user
   loadPostedProjects = () => {
-    API.getPosted()
+    API.getPosted(this.state.user.id)
       .then(res =>
         this.setState({
           postedProjects: res.data
@@ -62,32 +73,21 @@ class PostedProjects extends Component {
             {this.state.postedProjects.length ? (
               <List className="savedResults">
                 {this.state.postedProjects.map(project => {
-                  return (
-                    <ListItem key={project.id} class="list-item">
-                      <FormBtn
-                        className="editBtn"
-                        onClick={() =>
-                          this.handleeditPostedProject(
-                            project.id,
-                            project.project_title
-                          )}
-                      >
+                  return <ListItem key={project.id} class="list-item">
+                      {/* <FormBtn className="editBtn" onClick={() => this.handleeditPostedProject(project.id, project.project_title)}>
                         ?
-                      </FormBtn>
+                      </FormBtn> */}
                       &nbsp; &nbsp;
-                      <FormBtn
-                        className="delBtn"
-                        onClick={() => this.removePostedProject(project.id)}
-                      >
+                      <FormBtn className="delBtn" onClick={() => this.removePostedProject(project.id)}>
                         X
                       </FormBtn>
                       &nbsp; &nbsp;
-                      {project.date} &nbsp;
+                      {project.id} &nbsp;
+                      <Time value={project.posted_date} format="MM-DD-YYYY" />&nbsp;
                       <a href="" class="title">
                         {project.project_title}
                       </a>
-                    </ListItem>
-                  );
+                    </ListItem>;
                 })}
               </List>
             ) : (

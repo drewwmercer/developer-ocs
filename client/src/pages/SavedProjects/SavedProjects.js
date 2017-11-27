@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Time from 'react-time-format';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { SaveBtn } from '../../components/Save';
@@ -8,15 +9,25 @@ import './SavedProjects.css';
 
 class SavedProjects extends Component {
   state = {
-    savedProjects: []
+    savedProjects: [],
+    user: {}
   };
 
+  // Checks to see if user is logged in. If so, proceed to requested page, if not, redirect to login page
   componentDidMount() {
-    this.loadSavedProjects();
+    API.isLoggedIn().then(res => {
+      console.log(res);
+      if (res.data.statusCode !== 401) {
+        this.setState({ user: res.data });
+          this.loadSavedProjects();
+      } else {
+        window.location.href = '/';
+      }
+    });
   }
 
   loadSavedProjects = () => {
-    API.getSavedProjects()
+    API.getSavedProjects(this.state.user.id)
       .then(res =>
         this.setState({
           savedProjects: res.data
@@ -60,7 +71,7 @@ class SavedProjects extends Component {
                       <ReplyBtn onClick={() => this.handleSaveProject(saved.id, saved.Project.project_title)} />
                       &nbsp; &nbsp;
                       {saved.Project.id} &nbsp;
-                      {saved.Project.posted_date} &nbsp;
+                      <Time value={saved.Project.posted_date} format="MM-DD-YYYY" />&nbsp;
                       <a href="" className="projTitle">
                         {saved.Project.project_title}
                       </a>

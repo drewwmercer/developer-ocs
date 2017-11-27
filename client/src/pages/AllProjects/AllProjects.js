@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
+import Time from 'react-time-format';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
@@ -10,11 +11,20 @@ import API from '../../utils/API';
 
 class AllProjects extends Component {
   state = {
-    projects: []
+    projects: [],
+    user: {}
   };
 
   componentDidMount() {
-    this.loadAllProjects();
+    API.isLoggedIn().then(res => {
+      console.log(res);
+      if (res.data.statusCode !== 401) {
+        this.setState({ user: res.data });
+        this.loadAllProjects();
+      } else {
+        window.location.href = '/';
+      }
+    });
   }
 
   // When the form is submitted, use the API.saveProject method to save the project data
@@ -27,6 +37,18 @@ class AllProjects extends Component {
         })
       )
       .catch(err => console.log(err));
+  };
+
+  // Saves/favorites a project
+  handleSaveProject = (id) => {
+    API.saveProject({ project_id: id, user_id: this.state.user.id })
+      .then(res => this.loadSaved())
+      .catch(err => console.log(err));
+  };
+
+  // Updates save icon display to show if project is in saved status
+  loadSaved = () => {
+    // ToDo: get saved projects and merge them with this.state.projects... set savedFlag to true. savedFlag === true would need to prevent duplicate saves
   };
 
   render() {
@@ -45,11 +67,7 @@ class AllProjects extends Component {
                     return (
                       <ListItem key={project.id}>
                         <SaveBtn
-                          onClick={() =>
-                            this.handleSaveProject(
-                              project.id,
-                              project.project_title
-                            )}
+                          onClick={() => this.handleSaveProject(project.id)}
                         />
                         &nbsp; &nbsp;
                         <ReplyBtn
@@ -61,7 +79,10 @@ class AllProjects extends Component {
                         />
                         &nbsp; &nbsp;
                         {project.id} &nbsp;
-                        {project.posted_date} &nbsp;
+                        <Time
+                          value={project.posted_date}
+                          format="MM-DD-YYYY"
+                        />&nbsp;
                         <a href="" className="projTitle">
                           {project.project_title}
                         </a>

@@ -9,8 +9,21 @@ class NewProject extends Component {
   state = {
     title: '',
     projDesc: '',
-    langDesc: ''
+    langDesc: '',
+    user: {}
   };
+
+  // Checks to see if user is logged in. If so, proceed to requested page, if not, redirect to login page
+  componentDidMount() {
+    API.isLoggedIn().then(res => {
+      console.log(res);
+      if (res.data.statusCode !== 401) {
+        this.setState({ user: res.data });
+      } else {
+        window.location.href = '/';
+      }
+    });
+  }
 
   // When the form is submitted, use the API.saveProject method to save the project data
   // Then reload projects from the database
@@ -21,7 +34,7 @@ class NewProject extends Component {
         project_title: this.state.title,
         project_details: this.state.projDesc,
         primary_language: this.state.projLang,
-        UserId: '3'
+        UserId: this.state.user.id
       })
         .then(res =>
           this.setState({
@@ -33,8 +46,6 @@ class NewProject extends Component {
         .catch(err => console.log(err));
     }
   };
-
-  // <form method="post" id="myForm" action="dynaform.php" onSubmit="alert('Your project has been posted.');"
 
   // Handles updating component state when the user types into the input field
   handleInputChange = event => {
