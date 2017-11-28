@@ -1,3 +1,4 @@
-web: sh -c ‘cd ./client/ && npm install’
-web: sh = ‘cd .. && npm run build’
+
+web: sh -c ‘cd ./client/ && npm install && npm run build’
+web: sh = ‘cd .. && npm install’
 web: npm run server
