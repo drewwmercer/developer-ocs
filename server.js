@@ -15,13 +15,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Requiring our models for syncing
-var db = require("./models");
+var db = require('./models');
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(
   session({
     secret: 'anystringoftext',
@@ -34,7 +34,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Serve up static assets
-app.use(express.static("client/build"));
+app.use(express.static('client/build'));
 
 // Add routes, both API and view
 const routes = require('./routes');
@@ -46,5 +46,6 @@ db.sequelize.sync({ force: false }).then(function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });
 });
+
 
 module.exports = app;
