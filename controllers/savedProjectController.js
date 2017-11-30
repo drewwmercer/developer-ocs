@@ -31,11 +31,13 @@ module.exports = {
 
   // Delete a saved project
   removeSavedProject: (req, res) => {
-    let savedId = req.params.id;
+    let ProjectId = req.body.ProjectId;
+    let userId = req.body.user_id;
     db.Saved
       .destroy({
         where: {
-          id: savedId
+          ProjectId: ProjectId,
+          user_id: userId
         }
       })
       .then(dbModel => res.json(dbModel))
