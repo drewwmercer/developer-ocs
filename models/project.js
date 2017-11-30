@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     project_details: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     primary_language: {
