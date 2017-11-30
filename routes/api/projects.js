@@ -11,7 +11,11 @@ router
 
   // Creates a saved/replied to projects
 router.route('/saved')
-.post(savedProjectController.saveProject);
+.post(savedProjectController.saveProject)
+
+// Removes saved project
+router.route('/saved/delete')
+.post(savedProjectController.removeSavedProject);
 
 // Pulls all posted projects by user
 router
@@ -23,6 +27,5 @@ router
 router
   .route('/saved/:id')
   .get(savedProjectController.findSaved)
-  .delete(savedProjectController.removeSavedProject);
 
 module.exports = router;
