@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 import Time from 'react-time-format';
+import { Accordion, AccordionItem } from 'react-sanfona';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
@@ -40,10 +41,15 @@ class AllProjects extends Component {
   };
 
   // Saves/favorites a project
-  handleSaveProject = (id) => {
+  handleSaveProject = id => {
     API.saveProject({ project_id: id, user_id: this.state.user.id })
       .then(res => this.loadSaved())
       .catch(err => console.log(err));
+  };
+
+  // Opens email client to reply to project post
+  handleReply = (email, title) => {
+    window.location.href = 'mailto:' + email + '?subject=' + title;
   };
 
   // Updates save icon display to show if project is in saved status
@@ -52,8 +58,7 @@ class AllProjects extends Component {
   };
 
   render() {
-    return (
-      <div>
+    return <div>
         {/* // This row will handle all of the projects */}
         <Row>
           <Col size="sm-12">
@@ -61,47 +66,33 @@ class AllProjects extends Component {
 
             {/* This panel will initially be made up of a panel and wells for each of the projects retrieved */}
             <div className="panel panel-primary">
-              {this.state.projects.length ? (
-                <List className="searchResults">
+              {this.state.projects.length ? <Accordion allowMultiple="true" className="searchResults">
                   {this.state.projects.map(project => {
-                    return (
-                      <ListItem key={project.id}>
-                        <SaveBtn
-                          onClick={() => this.handleSaveProject(project.id)}
-                        />
-                        &nbsp; &nbsp;
-                        <ReplyBtn
-                          onClick={() =>
-                            this.handleSaveProject(
-                              project.id,
-                              project.project_title
-                            )}
-                        />
-                        &nbsp; &nbsp;
-                        {project.id} &nbsp;
-                        <Time
-                          value={project.posted_date}
-                          format="MM-DD-YYYY"
-                        />&nbsp;
-                        <a href="" className="projTitle">
-                          {project.project_title}
-                        </a>
-                      </ListItem>
-                    );
+                    return <AccordionItem key={project.id} title={project.project_title}>
+                        <div>
+                          <Time value={project.posted_date} format="MM-DD-YYYY" />
+                          &nbsp; &nbsp;
+                          {project.id} &nbsp; &nbsp;
+                          <div>{project.project_details}</div>
+                          <div>{project.primary_language}</div>
+                          <div>
+                            <SaveBtn onClick={() => this.handleSaveProject(project.id)} />
+                            &nbsp; &nbsp;
+                            <ReplyBtn onClick={() => this.handleReply(project.user.user_id, project.project_title)} />
+                          </div>
+                        </div>
+                      </AccordionItem>;
                   })}
-                </List>
-              ) : (
+                </Accordion> : 
                 <List>
                   <ListItem>
                     <h3 className="noRes">No Results to Display</h3>
                   </ListItem>
-                </List>
-              )}
+                </List>}
             </div>
           </Col>
         </Row>
-      </div>
-    );
+      </div>;
   }
 }
 
