@@ -19,7 +19,7 @@ class SavedProjects extends Component {
       console.log(res);
       if (res.data.statusCode !== 401) {
         this.setState({ user: res.data });
-          this.loadSavedProjects();
+        this.loadSavedProjects();
       } else {
         window.location.href = '/';
       }
@@ -37,11 +37,16 @@ class SavedProjects extends Component {
   };
 
   // // Deletes a project from the database with a given id, then reloads projects from the db
-  // deleteProject = id => {
-  //   API.deleteProject(id)
-  //     .then(res => this.loadSavedProjects())
-  //     .catch(err => console.log(err));
-  // };
+  handleDeleteProject = id => {
+    API.deleteProject({ ProjectId: id, user_id: this.state.user.id })
+      .then(res => this.loadSavedProjects())
+      .catch(err => console.log(err));
+  };
+
+  // Opens email client to reply to project post
+  handleReply = (email, title) => {
+    window.location.href = 'mailto:' + email + '?subject=' + title;
+  };
 
   render() {
     return (
@@ -66,9 +71,9 @@ class SavedProjects extends Component {
               <List className="savedResults">
                 {this.state.savedProjects.map(saved => {
                   return <ListItem key={saved.id} className="list-item">
-                      <SaveBtn onClick={() => this.handleSaveProject(saved.id, saved.Project.project_title)} />
+                      <SaveBtn onClick={() => this.handleDeleteProject(saved.ProjectId)} />
                       &nbsp; &nbsp;
-                      <ReplyBtn onClick={() => this.handleSaveProject(saved.id, saved.Project.project_title)} />
+                      <ReplyBtn onClick={() => this.handleReply("saved.user.user_id", saved.Project.project_title)} />
                       &nbsp; &nbsp;
                       {saved.Project.id} &nbsp;
                       <Time value={saved.Project.posted_date} format="MM-DD-YYYY" />&nbsp;
