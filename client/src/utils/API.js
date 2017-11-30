@@ -40,8 +40,8 @@ export default {
   },
 
   // Deletes the saved project with the given id
-  deleteProject: id => {
-    return axios.delete('/api/projects/saved/' + id);
+  deleteProject: projectData => {
+    return axios.post('/api/projects/saved/delete', projectData);
   },
 
   // Favoriting a project to the database
