@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     posted_date: {
       type: Sequelize.DATE,
       allowNull: false,
-      defaultValue: Sequelize.NOW
+      defaultValue: Sequelize.NOW,
+      timezone: '-05:00'
     },
     project_title: {
       type: DataTypes.STRING,
@@ -20,17 +21,22 @@ module.exports = function(sequelize, DataTypes) {
     },
     primary_language: {
       type: DataTypes.STRING
+    },
+    active: {
+      type: BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
   });
 
-	  Project.associate = models => {
-      Project.hasMany(models.Saved, {
-        sourceKey: 'id',
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
+  Project.associate = models => {
+    Project.hasMany(models.Saved, {
+      sourceKey: 'id',
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Project;
 };

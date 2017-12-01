@@ -10,7 +10,7 @@ https://developer-ocs.herokuapp.com/
 ## Design phase - **Schedule**
 - [x] 14-Nov-2017: Deliverable 1, project plan
 - [x] 21-Nov-2017: Deliverable 2, demo of MVP
-- [ ] 28-Nov-2017: Deliverable 3, cleanup and polish
+- [x] 28-Nov-2017: Deliverable 3, cleanup and polish
 - [ ] 07-Dec-2017: Deliverable 4, final presentation
 
 ## Design phase - **Issue Tracking** & **Project Planning** for MVP
