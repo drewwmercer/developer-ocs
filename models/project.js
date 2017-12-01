@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     posted_date: {
       type: Sequelize.DATE,
       allowNull: false,
-      defaultValue: Sequelize.NOW
+      defaultValue: Sequelize.NOW,
+      timezone: '-05:00'
     },
     project_title: {
       type: DataTypes.STRING,
