@@ -1,0 +1,92 @@
+.panel {
+    background: #e5e0d3 !important;
+    border-bottom: none;
+    border-top: 2px solid #2a2c31 !important;
+    border-left: 2px solid #2a2c31 !important;
+    border-right: 2px solid #2a2c31 !important;
+}
+
+.panel-heading {
+  background: #878979;
+  border-bottom: 2px solid #2a2c31 !important;
+}
+
+.panel-title {
+  margin-left: 5px !important;
+}
+
+.AccordionItem {
+  font-weight: bold;
+}
+
+h3 {
+  margin-left: 15px !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.projectTitle {
+  border-bottom: 2px solid #2a2c31;
+  color: black !important;
+}
+
+.projectDetails {
+  padding-top: 15px !important;
+  margin-bottom: 15px !important;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-top: 1px solid #2a2c31;
+  color: black !important;
+}
+
+.buttons {
+  display: inline-block;
+}
+
+.idNumber {
+  display: inline-block;
+  float: right;
+  text-align: right;
+  color: black !important;
+  line-height: 21px;
+  vertical-align: middle;
+}
+
+.savedResults {
+  background: #e5e0d3;
+  border: 2px solid #2a2c31;
+}
+
+.list-item {
+  height: 67px;
+}
+
+.delBtn {
+  background: red !important;
+  margin-left: 15px;
+  float: left;
+}
+
+.editBtn {
+  background: blue;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.noRes {
+  margin-left: 15px;
+  text-align: center;
+}
+
+.panel-heading {
+  background: #878979;
+  border-bottom: 2px solid #2a2c31 !important;
+}
+
+.savedResults {
+  background: #e5e0d3;
+  border: 2px solid #2a2c31;
+}
+
