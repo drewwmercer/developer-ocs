@@ -20,17 +20,22 @@ module.exports = function(sequelize, DataTypes) {
     },
     primary_language: {
       type: DataTypes.STRING
+    },
+    active: {
+      type: BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
   });
 
-	  Project.associate = models => {
-      Project.hasMany(models.Saved, {
-        sourceKey: 'id',
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
+  Project.associate = models => {
+    Project.hasMany(models.Saved, {
+      sourceKey: 'id',
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Project;
 };
