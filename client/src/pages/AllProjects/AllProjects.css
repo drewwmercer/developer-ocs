@@ -1,3 +1,8 @@
+.panel {
+    background: #e5e0d3 !important;
+    border-bottom: none;
+}
+
 .AccordionItem {
   font-weight: bold;
 }
@@ -9,7 +14,7 @@ h3 {
 }
 
 .projectTitle {
-  border: 1px solid #2a2c31;
+  border-bottom: 2px solid #2a2c31;
   color: black !important;
 }
 

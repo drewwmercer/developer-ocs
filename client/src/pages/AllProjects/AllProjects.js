@@ -70,49 +70,34 @@ class AllProjects extends Component {
               {this.state.projects.length ? (
                 <Accordion allowMultiple="true" className="searchResults">
                   {this.state.projects.map(project => {
-                    return (
-                      <AccordionItem
-                        key={project.id}
-                        title={project.project_title}
-                        className="projectTitle"
-                      >
+                    return <AccordionItem key={project.id} title={project.project_title} className="projectTitle">
                         <div className="projectDetails">
-                          Date Posted:{' '}
-                          <Time
-                            value={project.posted_date}
-                            format="MM-DD-YYYY"
-                          />
+                          <strong>
+                            Date Posted:
+                          </strong> <Time value={project.posted_date} format="MM-DD-YYYY" />
                           <br />
                           <br />
                           <div>
-                            Project Details:
+                            <strong>Project Details: </strong>
                             <br />
                             {project.project_details}
                           </div>
                           <br />
                           <div>
-                            Languages Needed: {project.primary_language}
+                            <strong>Languages Needed: </strong>{' '}
+                            {project.primary_language}
                           </div>
                           <br />
                           <div className="buttons">
-                            <SaveBtn
-                              onClick={() => this.handleSaveProject(project.id)}
-                            />
+                            <SaveBtn onClick={() => this.handleSaveProject(project.id)} />
                             &nbsp; &nbsp;
-                            <ReplyBtn
-                              onClick={() =>
-                                this.handleReply(
-                                  project.user.user_id,
-                                  project.project_title
-                                )}
-                            />
+                            <ReplyBtn onClick={() => this.handleReply(project.user.user_id, project.project_title)} />
                           </div>
                           <div className="idNumber">
-                            Project Id: {project.id}
+                            <strong>Project Id: </strong>{project.id}
                           </div>
                         </div>
-                      </AccordionItem>
-                    );
+                      </AccordionItem>;
                   })}
                 </Accordion>
               ) : (
