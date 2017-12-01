@@ -17,6 +17,7 @@
   position: absolute;
   padding: 0px;
   width: 150px;
+  margin-top: 5px;
 }
 
 .branches {
@@ -31,7 +32,7 @@
 }
 
 .navbar-right {
-  margin-right: 0px;
+  margin-right: -1px;
 }
 
 .pageName {
