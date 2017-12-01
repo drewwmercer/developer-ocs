@@ -2,7 +2,7 @@ INSERT INTO Users
     (user_name, user_email, github_id, google_id, active)
 VALUES
     ('Drew Mercer', 'awmercer@gmail.com', 20029745, 1117264685222156322242, true);
-    ('Rich McRary', '', , ,true);
+    ('Rich McRary', 'rgmcrary@gmail.com', 26585293, 106251521784639852662,true);
 INSERT INTO Projects
     (posted_date, project_title, project_details, primary_language, active, UserId)
 VALUES
