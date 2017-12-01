@@ -6,7 +6,7 @@ VALUES
 INSERT INTO Projects
     (posted_date, project_title, project_details, primary_language, active, UserId)
 VALUES
-    ('2017-11-25 00:04:43', 'Repair drop downs of search box', 'I need a php dev to fix the "Search Hotels" box on the home page of Economadic.com', 'PHP, MySQL, HTML', true, 1);
+    ('2017-11-25 00:04:43','Repair drop downs of search box','I need a php dev to fix the "Search Hotels" box on the home page of Economadic.com','PHP, MySQL, HTML',true,1);
     ('2017-11-26 00:24:43','Node Socket Server Development','We are looking for Node.js ninjas who want to help us design cutting edge scalable products to meet our rapidly growing business. We are building out a team and looking for multiple levels but you should have at least 3 years of programming experience.','Node.js',true,3),
     ('2017-11-27 00:26:38','Angular Website Enhancement','Summary of Challenge:  Implement Angular website enhancement. Add searchable tags on FAQ section of website and add a few navigation items onto homepage.   \n\nTool Logic/Requirements\n•	FAQ Section\no	List items will be pulled from a SharePoint list\no	Depend','Angular',true,3),
     ('2017-11-29 00:28:24','Full Stack Engineer React.js','We are looking for an experienced JavaScript Engineer that has experience with React.js, Node.js and noSql. You will be working on our software application AcceleTrial, together with our Engineers on validating, writing test, and adding new features.','React.js, JavaScript, Node.js',true,1),
