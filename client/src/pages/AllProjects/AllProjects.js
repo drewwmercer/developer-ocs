@@ -70,11 +70,18 @@ class AllProjects extends Component {
               {this.state.projects.length ? (
                 <Accordion allowMultiple="true" className="searchResults">
                   {this.state.projects.map(project => {
-                    return <AccordionItem key={project.id} title={project.project_title} className="projectTitle">
+                    return (
+                      <AccordionItem
+                        key={project.id}
+                        title={project.project_title}
+                        className="projectTitle"
+                      >
                         <div className="projectDetails">
-                          <strong>
-                            Date Posted:
-                          </strong> <Time value={project.posted_date} format="MM-DD-YYYY" />
+                          <strong>Date Posted:</strong>{' '}
+                          <Time
+                            value={project.posted_date}
+                            format="MM-DD-YYYY"
+                          />
                           <br />
                           <br />
                           <div>
@@ -89,15 +96,25 @@ class AllProjects extends Component {
                           </div>
                           <br />
                           <div className="buttons">
-                            <SaveBtn onClick={() => this.handleSaveProject(project.id)} />
+                            <SaveBtn
+                              onClick={() => this.handleSaveProject(project.id)}
+                            />
                             &nbsp; &nbsp;
-                            <ReplyBtn onClick={() => this.handleReply(project.user.user_id, project.project_title)} />
+                            <ReplyBtn
+                              onClick={() =>
+                                this.handleReply(
+                                  project.user.user_id,
+                                  project.project_title
+                                )}
+                            />
                           </div>
                           <div className="idNumber">
-                            <strong>Project Id: </strong>{project.id}
+                            <strong>Project Id: </strong>
+                            {project.id}
                           </div>
                         </div>
-                      </AccordionItem>;
+                      </AccordionItem>
+                    );
                   })}
                 </Accordion>
               ) : (

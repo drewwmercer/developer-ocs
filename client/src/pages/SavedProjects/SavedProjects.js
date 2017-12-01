@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Time from 'react-time-format';
+import { Accordion, AccordionItem } from 'react-sanfona';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { SaveBtn } from '../../components/Save';
@@ -61,28 +62,63 @@ class SavedProjects extends Component {
             <div className="panel-heading">
               <h3 className="panel-title">
                 <strong>
-                  <i className="fa fa-table" /> Saved Projects
+                  <i className="fa fa-table" /> My Saved Projects
                 </strong>
               </h3>
             </div>
 
             {/* This main panel will hold each of the resulting projects */}
             {this.state.savedProjects.length ? (
-              <List className="savedResults">
+              <Accordion allowMultiple="true" className="searchResults">
                 {this.state.savedProjects.map(saved => {
-                  return <ListItem key={saved.id} className="list-item">
-                      <SaveBtn onClick={() => this.handleDeleteProject(saved.ProjectId)} />
-                      &nbsp; &nbsp;
-                      <ReplyBtn onClick={() => this.handleReply("saved.user.user_id", saved.Project.project_title)} />
-                      &nbsp; &nbsp;
-                      {saved.Project.id} &nbsp;
-                      <Time value={saved.Project.posted_date} format="MM-DD-YYYY" />&nbsp;
-                      <a href="" className="projTitle">
-                        {saved.Project.project_title}
-                      </a>
-                    </ListItem>;
+                  return (
+                    <AccordionItem
+                      key={saved.id}
+                      title={saved.Project.project_title}
+                      className="projectTitle"
+                    >
+                      <div className="projectDetails">
+                        <strong>Date Posted:</strong>{' '}
+                        <Time
+                          value={saved.Project.posted_date}
+                          format="MM-DD-YYYY"
+                        />
+                        <br />
+                        <br />
+                        <div>
+                          <strong>Project Details: </strong>
+                          <br />
+                          {saved.Project.project_details}
+                        </div>
+                        <br />
+                        <div>
+                          <strong>Languages Needed: </strong>{' '}
+                          {saved.Project.primary_language}
+                        </div>
+                        <br />
+                        <div className="buttons">
+                          <SaveBtn
+                            onClick={() =>
+                              this.handleSaveProject(saved.Project.id)}
+                          />
+                          &nbsp; &nbsp;
+                          <ReplyBtn
+                            onClick={() =>
+                              this.handleReply(
+                                saved.Project.user.user_id,
+                                saved.Project.project_title
+                              )}
+                          />
+                        </div>
+                        <div className="idNumber">
+                          <strong>Project Id: </strong>
+                          {saved.Project.id}
+                        </div>
+                      </div>
+                    </AccordionItem>
+                  );
                 })}
-              </List>
+              </Accordion>
             ) : (
               <List>
                 <ListItem>
