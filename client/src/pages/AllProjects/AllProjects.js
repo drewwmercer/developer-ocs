@@ -58,7 +58,8 @@ class AllProjects extends Component {
   };
 
   render() {
-    return <div>
+    return (
+      <div>
         {/* // This row will handle all of the projects */}
         <Row>
           <Col size="sm-12">
@@ -66,33 +67,66 @@ class AllProjects extends Component {
 
             {/* This panel will initially be made up of a panel and wells for each of the projects retrieved */}
             <div className="panel panel-primary">
-              {this.state.projects.length ? <Accordion allowMultiple="true" className="searchResults">
+              {this.state.projects.length ? (
+                <Accordion allowMultiple="true" className="searchResults">
                   {this.state.projects.map(project => {
-                    return <AccordionItem key={project.id} title={project.project_title}>
-                        <div>
-                          <Time value={project.posted_date} format="MM-DD-YYYY" />
-                          &nbsp; &nbsp;
-                          {project.id} &nbsp; &nbsp;
-                          <div>{project.project_details}</div>
-                          <div>{project.primary_language}</div>
+                    return (
+                      <AccordionItem
+                        key={project.id}
+                        title={project.project_title}
+                        className="projectTitle"
+                      >
+                        <div className="projectDetails">
+                          Date Posted:{' '}
+                          <Time
+                            value={project.posted_date}
+                            format="MM-DD-YYYY"
+                          />
+                          <br />
+                          <br />
                           <div>
-                            <SaveBtn onClick={() => this.handleSaveProject(project.id)} />
+                            Project Details:
+                            <br />
+                            {project.project_details}
+                          </div>
+                          <br />
+                          <div>
+                            Languages Needed: {project.primary_language}
+                          </div>
+                          <br />
+                          <div className="buttons">
+                            <SaveBtn
+                              onClick={() => this.handleSaveProject(project.id)}
+                            />
                             &nbsp; &nbsp;
-                            <ReplyBtn onClick={() => this.handleReply(project.user.user_id, project.project_title)} />
+                            <ReplyBtn
+                              onClick={() =>
+                                this.handleReply(
+                                  project.user.user_id,
+                                  project.project_title
+                                )}
+                            />
+                          </div>
+                          <div className="idNumber">
+                            Project Id: {project.id}
                           </div>
                         </div>
-                      </AccordionItem>;
+                      </AccordionItem>
+                    );
                   })}
-                </Accordion> : 
+                </Accordion>
+              ) : (
                 <List>
                   <ListItem>
                     <h3 className="noRes">No Results to Display</h3>
                   </ListItem>
-                </List>}
+                </List>
+              )}
             </div>
           </Col>
         </Row>
-      </div>;
+      </div>
+    );
   }
 }
 
