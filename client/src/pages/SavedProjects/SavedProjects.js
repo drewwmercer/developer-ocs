@@ -6,7 +6,6 @@ import { Col, Row } from '../../components/Grid';
 import { SaveBtn } from '../../components/Save';
 import { ReplyBtn } from '../../components/Reply';
 import API from '../../utils/API';
-import './SavedProjects.css';
 
 class SavedProjects extends Component {
   state = {
