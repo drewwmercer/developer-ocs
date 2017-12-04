@@ -7,6 +7,7 @@ import SavedProjects from './pages/SavedProjects';
 import AllProjects from './pages/AllProjects';
 import NewProject from './pages/NewProject';
 import LogIn from './pages/LogIn';
+import './App.css';
 import Nav from './components/Nav';
 
 const App = () => (

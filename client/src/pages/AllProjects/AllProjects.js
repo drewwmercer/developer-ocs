@@ -7,7 +7,6 @@ import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
 import { SaveBtn } from '../../components/Save';
 import { ReplyBtn } from '../../components/Reply';
-import './AllProjects.css';
 import API from '../../utils/API';
 
 class AllProjects extends Component {
@@ -77,7 +76,7 @@ class AllProjects extends Component {
                         className="projectTitle"
                       >
                         <div className="projectDetails">
-                          Date Posted:{' '}
+                          <strong>Date Posted:</strong>{' '}
                           <Time
                             value={project.posted_date}
                             format="MM-DD-YYYY"
@@ -85,13 +84,14 @@ class AllProjects extends Component {
                           <br />
                           <br />
                           <div>
-                            Project Details:
+                            <strong>Project Details: </strong>
                             <br />
                             {project.project_details}
                           </div>
                           <br />
                           <div>
-                            Languages Needed: {project.primary_language}
+                            <strong>Languages Needed: </strong>{' '}
+                            {project.primary_language}
                           </div>
                           <br />
                           <div className="buttons">
@@ -108,7 +108,8 @@ class AllProjects extends Component {
                             />
                           </div>
                           <div className="idNumber">
-                            Project Id: {project.id}
+                            <strong>Project Id: </strong>
+                            {project.id}
                           </div>
                         </div>
                       </AccordionItem>

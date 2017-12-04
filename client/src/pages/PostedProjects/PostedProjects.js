@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Time from 'react-time-format';
+import { Accordion, AccordionItem } from 'react-sanfona';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
 import { SaveBtn } from '../../components/Save';
-import './PostedProjects.css';
 import API from '../../utils/API';
 
 class PostedProjects extends Component {
@@ -64,32 +64,51 @@ class PostedProjects extends Component {
             <div className="panel-heading">
               <h3 className="panel-title">
                 <strong>
-                  <i className="fa fa-table" /> Posted Projects
+                  <i className="fa fa-table" /> My Posted Projects
                 </strong>
               </h3>
             </div>
 
             {/* This main panel will hold each of the resulting projects */}
             {this.state.postedProjects.length ? (
-              <List className="savedResults">
+              <Accordion allowMultiple="true" className="searchResults">
                 {this.state.postedProjects.map(project => {
-                  return <ListItem key={project.id} class="list-item">
-                      {/* <FormBtn className="editBtn" onClick={() => this.handleeditPostedProject(project.id, project.project_title)}>
+                  return <AccordionItem key={project.id} title={project.project_title} className="projectTitle">
+                      <div className="projectDetails">
+                        <strong>
+                          Date Posted:
+                        </strong> <Time value={project.posted_date} format="MM-DD-YYYY" />
+                        <br />
+                        <br />
+                        <div>
+                          <strong>Project Details: </strong>
+                          <br />
+                          {project.project_details}
+                        </div>
+                        <br />
+                        <div>
+                          <strong>
+                            Languages Needed:{' '}
+                          </strong> {project.primary_language}
+                        </div>
+                        <br />
+                        <div className='buttons'>
+                          {/* <FormBtn className="editBtn" onClick={() => this.handleeditPostedProject(project.id, project.project_title)}>
                         ?
                       </FormBtn> */}
-                      &nbsp; &nbsp;
-                      <FormBtn className="delBtn" onClick={() => this.removePostedProject(project.id)}>
-                        X
-                      </FormBtn>
-                      &nbsp; &nbsp;
-                      {project.id} &nbsp;
-                      <Time value={project.posted_date} format="MM-DD-YYYY" />&nbsp;
-                      <a href="" class="title">
-                        {project.project_title}
-                      </a>
-                    </ListItem>;
+                          &nbsp; &nbsp;
+                          <FormBtn className="delBtn" onClick={() => this.removePostedProject(project.id)}>
+                            Delete
+                          </FormBtn>{' '}
+                        </div>
+                        <div className="idNumber">
+                          <strong>Project Id: </strong>
+                          {project.id}
+                        </div>
+                      </div>
+                    </AccordionItem>;
                 })}
-              </List>
+              </Accordion>
             ) : (
               <List>
                 <ListItem>
