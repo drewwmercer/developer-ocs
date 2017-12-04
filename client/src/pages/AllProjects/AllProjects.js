@@ -7,7 +7,6 @@ import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
 import { SaveBtn } from '../../components/Save';
 import { ReplyBtn } from '../../components/Reply';
-import './AllProjects.css';
 import API from '../../utils/API';
 
 class AllProjects extends Component {

@@ -5,7 +5,6 @@ import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
 import { SaveBtn } from '../../components/Save';
-import './PostedProjects.css';
 import API from '../../utils/API';
 
 class PostedProjects extends Component {
