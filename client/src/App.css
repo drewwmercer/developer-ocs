@@ -7,6 +7,7 @@
 }
 
 .panel-heading {
+  margin-right: -1px;
   background: #878979;
   border-bottom: 2px solid #2a2c31 !important;
 }

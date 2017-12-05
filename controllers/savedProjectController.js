@@ -16,15 +16,20 @@ module.exports = {
 
   // Display all saved/replied to projects
   findSaved: (req, res) => {
-    db.Saved
-      .findAll({
-        include: [
-          {
-            model: db.Project
-          }
-        ],
-        where: { user_id: req.params.id }
-      })
+    db.Saved.findAll({
+      include: [
+        {
+          model: db.Project,
+          include: [
+            {
+              model: db.User,
+              attributes: ['user_email']
+            }
+          ]
+        }
+      ],
+      where: { user_id: req.params.id }
+    })
       .then(dbSaved => res.json(dbSaved))
       .catch(err => res.status(422).json(err));
   },

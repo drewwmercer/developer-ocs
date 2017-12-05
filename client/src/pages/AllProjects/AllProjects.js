@@ -102,7 +102,7 @@ class AllProjects extends Component {
                             <ReplyBtn
                               onClick={() =>
                                 this.handleReply(
-                                  project.user.user_id,
+                                  project.User.user_email,
                                   project.project_title
                                 )}
                             />

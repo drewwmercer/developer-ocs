@@ -1,8 +1,18 @@
 const GitHubStrategy = require('passport-github2').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const db = require('../models');
+const env = process.env.NODE_ENV || 'development';
+let googleCallBackURL = 'http://localhost:3001/auth/google/callback';
+let githubCallBackURL = 'http://localhost:3001/auth/github/callback';
+
+
 
 module.exports = passport => {
+  if (env === 'production') {
+    googleCallBackURL = 'https://developer-ocs.herokuapp.com/auth/google/callback'
+    githubCallBackURL = 'https://developer-ocs.herokuapp.com/auth/github/callback'
+  }
+
   passport.serializeUser((user, done) => {
     done(null, user.id);
   });
@@ -29,7 +39,7 @@ module.exports = passport => {
         clientID:
           '707635115027-5m0fdcudcnq9rf7s2fc6eskdob2eeena.apps.googleusercontent.com',
         clientSecret: 'CPhVYV20QcVO1Gl3LF83qH-R',
-        callbackURL: 'http://localhost:3001/auth/google/callback'
+        callbackURL: googleCallBackURL
       },
       (accessToken, refreshToken, profile, done) => {
         console.log(profile);
@@ -74,12 +84,11 @@ module.exports = passport => {
       {
         clientID: '49b48c42021706f2c9cf',
         clientSecret: 'e54641680cd932ed79f9ff7cdac450f5caf78277',
-        callbackURL: 'http://localhost:3001/auth/github/callback'
+        callbackURL: githubCallBackURL
       },
       (accessToken, refreshToken, profile, done) => {
         console.log(profile);
         process.nextTick(() => {
-          console.log('************');
           db.User
             .findOne({
               where: {

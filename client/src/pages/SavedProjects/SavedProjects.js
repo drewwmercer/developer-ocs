@@ -98,15 +98,17 @@ class SavedProjects extends Component {
                         <div className="buttons">
                           <SaveBtn
                             onClick={() =>
-                              this.handleSaveProject(saved.Project.id)}
+                              this.handleDeleteProject(saved.ProjectId)
+                            }
                           />
                           &nbsp; &nbsp;
                           <ReplyBtn
                             onClick={() =>
                               this.handleReply(
-                                saved.Project.user.user_id,
+                                saved.Project.User.user_email,
                                 saved.Project.project_title
-                              )}
+                              )
+                            }
                           />
                         </div>
                         <div className="idNumber">
