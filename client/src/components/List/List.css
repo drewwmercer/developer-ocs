@@ -1,6 +1,6 @@
 .list-overflow-container {
   max-height: 545px;
-  border: 1px solid #2a2c31;
+  border-bottom: 2px solid #2a2c31;
   border-bottom-right-radius: 4px;
   overflow-y: auto;
   overflow-x: hidden;
