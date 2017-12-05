@@ -13,8 +13,14 @@ module.exports = {
 
   // Display all projects
   findAll: (req, res) => {
-    db.Project
-      .findAll({})
+    db.Project.findAll({
+      include: [
+        {
+          model: db.User,
+          attributes: ['user_email']
+        }
+      ]
+    })
       .then(dbAllProjects => res.json(dbAllProjects))
       .catch(err => res.status(422).json(err));
   },
