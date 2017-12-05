@@ -2,8 +2,8 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const db = require('../models');
 const env = process.env.NODE_ENV || 'development';
-const googleCallBackURL = 'http://localhost:3001/auth/google/callback';
-const githubCallBackURL = 'http://localhost:3001/auth/github/callback';
+let googleCallBackURL = 'http://localhost:3001/auth/google/callback';
+let githubCallBackURL = 'http://localhost:3001/auth/github/callback';
 
 
 
