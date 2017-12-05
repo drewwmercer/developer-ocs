@@ -35,7 +35,13 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: {
         allowNull: false
       }
-    });
+    }),
+  Project.belongsTo(models.User, {
+       targetKey: 'id',
+       foreignKey: {
+         allowNull: false
+       }
+     })
   };
 
   return Project;
