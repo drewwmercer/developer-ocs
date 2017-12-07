@@ -24,7 +24,7 @@ class LogIn extends Component {
             <a href="/auth/google" rel="external" className="btn btn-default google">
               <span className="fa fa-google-plus fa-3x" />
             </a>
-            <p className="img__description">Google+</p>
+            {/* <p className="img__description">Google+</p> */}
           </div>
           &nbsp; &nbsp;
           {/* Github LogIn Button */}
@@ -32,7 +32,7 @@ class LogIn extends Component {
             <a href="/auth/github" rel="external" className="btn btn-default github">
               <span className="fa fa-github fa-3x" />
             </a>
-            <p className="img__description">Github</p>
+            {/* <p className="img__description">Github</p> */}
           </div>
         </div>
       </div>
