@@ -23,3 +23,8 @@
 .github {
     min-width: 62px;
 }
+
+.welcome-text {
+  text-align: center;
+  color: white;
+}
