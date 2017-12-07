@@ -28,3 +28,13 @@
   text-align: center;
   color: white;
 }
+
+.login-selections {
+  background: #e5e0d3;
+  border: 2px solid #2a2c31;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  width: 25%;
+  margin: 0 auto;
+}
