@@ -17,16 +17,16 @@ An interactive, open source web application for developers to post, find and col
  
 
 ## **Built with**
-Axios
-CSS3
-Express
-Express Sessions
-HTML5
-MySQL2
-Passport
-React
-React-Sanfona
-Sequelize
+* Axios
+* CSS3
+* Express
+* Express Sessions
+* HTML5
+* MySQL2
+* Passport
+* React
+* React-Sanfona
+* Sequelize
 
 
 ***
