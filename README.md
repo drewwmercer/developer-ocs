@@ -1,5 +1,5 @@
 # Welcome to **Developer OCS**
-An interactive, open source web application for developers to post, find and collaborate on portfolio-grade projects. This is a resource for developers of all skill levels (students, graduates (bootcamp or university), or anywhere in between. It's also an open bulletin for companies to have pilot projects built or try out new technologies while finding skilled resources dedicated to their craft. 
+An interactive, open source web application for developers to post, find and collaborate on portfolio-grade projects. This is a resource for developers of all skill levels: students, graduates (bootcamp or university), or anywhere in between. It's also an open bulletin for companies to have pilot projects built or try out new technologies while finding skilled resources dedicated to their craft. 
 
 ## See it live at: https://developer-ocs.herokuapp.com/ 
 
