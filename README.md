@@ -14,9 +14,21 @@ An interactive, open source web application for developers to post, find and col
     * Delete projects that have been completed or filly resourced
 * Save projects and view them in a separate list
 * Reply directly to posters of projects
+ 
+
+## **Built with**
+Axios
+CSS3
+Express
+Express Sessions
+HTML5
+MySQL2
+Passport
+React
+React-Sanfona
+Sequelize
 
 
-    
 ***
 ## **Issue Tracking** & **Project Planning** for Phase I (MVP)
 **Issue Tracking:** [GitHub Issues](https://github.com/drewwmercer/developer-ocs/issues "Issue Tracking via GitHub")  
@@ -31,7 +43,10 @@ An interactive, open source web application for developers to post, find and col
 - [x] 07-Dec-2017: Deliverable 4, final presentation
 
 
-
 ## Background/Planning
 **Wireframes:**
 ![Screenshot](devOCS-wireframe-grab-08Nov2017.png)
+
+## **Contributors**
+* Rich McRary
+* Drew Mercer
