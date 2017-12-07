@@ -20,20 +20,23 @@ class LogIn extends Component {
             </div>
           </Col>
         </Row>
-        {/* Google+ LogIn Button */}
-        <div className="img__wrap">
-          <a href="/auth/google" rel="external" className="btn btn-default google">
-            <span className="fa fa-google-plus fa-3x" />
-          </a>
-          <p className="img__description">Google+</p>
-        </div>
-        &nbsp; &nbsp;
-        {/* Github LogIn Button */}
-        <div className="img__wrap">
-          <a href="/auth/github" rel="external" className="btn btn-default github">
-            <span className="fa fa-github fa-3x" />
-          </a>
-          <p className="img__description">Github</p>
+        <div className="login-selections">
+          {/* Google+ LogIn Button */}
+          <h3>Choose a Login method:</h3>
+          <div className="img__wrap">
+            <a href="/auth/google" rel="external" className="btn btn-default google">
+              <span className="fa fa-google-plus fa-3x" />
+            </a>
+            <p className="img__description">Google+</p>
+          </div>
+          &nbsp; &nbsp;
+          {/* Github LogIn Button */}
+          <div className="img__wrap">
+            <a href="/auth/github" rel="external" className="btn btn-default github">
+              <span className="fa fa-github fa-3x" />
+            </a>
+            <p className="img__description">Github</p>
+          </div>
         </div>
       </div>
     );  
