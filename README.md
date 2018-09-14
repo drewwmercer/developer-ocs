@@ -46,7 +46,3 @@ An interactive, open source web application for developers to post, find and col
 ## Background/Planning
 **Wireframes:**
 ![Screenshot](devOCS-wireframe-grab-08Nov2017.png)
-
-## **Contributors**
-* Rich McRary
-* Drew Mercer
