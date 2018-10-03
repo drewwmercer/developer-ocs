@@ -18,6 +18,11 @@
   padding: 0px;
   width: 150px;
   margin-top: 5px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+50,ffffff+66&1+50,0+66,0+66 */
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 66%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 50%,rgba(255,255,255,0) 66%);
+  background: radial-gradient(ellipse at center, rgba(255,255,255,1) 50%,rgba(255,255,255,0) 66%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
 }
 
 .branches {
