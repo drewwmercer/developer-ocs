@@ -26,7 +26,7 @@ class LogIn extends Component {
             applications.
           </h3>
         </div>
-        <br /><br />
+
         <div className="login-selections">
           <h3 className="login-choice">Choose a Login Method:</h3>
           {/* Google+ LogIn Button */}

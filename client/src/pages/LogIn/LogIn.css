@@ -74,6 +74,13 @@
   margin-top: 50px;
 }
 
+@media (max-width: 768px) {
+  .welcome-text {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
 .summary {
   margin-top: 25px !important;
   margin-bottom: 20px !important;
@@ -83,12 +90,24 @@
   background: #e5e0d3;
   border: 2px solid #2a2c31;
   border-radius: 4px;
-  padding-top: 30px;
+  padding: 20px;
   height: 175px;
   color: black;
   text-align: center;
-  width: 20%;
-  margin: 0 auto;
+  width: 30%;
+  margin: 30px auto 0 auto;
+}
+
+@media (max-width: 992px) {
+  .login-selections {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-selections {
+    width: 80%;
+  }
 }
 
 .login-choice {
