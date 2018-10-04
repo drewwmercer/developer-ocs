@@ -95,3 +95,9 @@
   margin: 0px !important;
   color: #2a2c31;
 }
+
+.github__activeuser__description{
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
