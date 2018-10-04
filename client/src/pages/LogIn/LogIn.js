@@ -45,6 +45,10 @@ class LogIn extends Component {
             <p className="github__img__description">Github</p>
           </div>
         </div>
+        <br/>
+        <div className="github__activeuser__description">
+          <Counter labeltext="Active Users :" total={500}> </Counter>
+        </div>
       </div>
       );
   }
