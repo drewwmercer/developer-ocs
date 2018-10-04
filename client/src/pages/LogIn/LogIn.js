@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { List, ListItem } from '../../components/List';
 import { Col, Row } from '../../components/Grid';
 import { FormBtn } from '../../components/Form';
+import { Counter } from '../../components/Counter';
 
 import './LogIn.css';
 import API from '../../utils/API';
