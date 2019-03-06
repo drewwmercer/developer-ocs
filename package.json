@@ -20,6 +20,7 @@
   "homepage": "https://github.com/drewwmercer/developer-ocs#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "event-stream": "^4.0.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "jshint": "^2.9.6",
