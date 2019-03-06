@@ -34,7 +34,7 @@
     "request": "^2.88.0",
     "sequelize": "^4.39.0",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^2.11.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
