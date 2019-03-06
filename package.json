@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/drewwmercer/developer-ocs.git",
-  "author": "Rich McRary, Drew Mercer",
+  "author": "Drew Mercer",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/drewwmercer/developer-ocs/issues"
@@ -54,7 +54,7 @@
     "less": "^3.8.1",
     "less-loader": "^4.0.5",
     "style-loader": "^0.19.0",
-    "webpack-dev-server": "^2.11.3"
+    "webpack-dev-server": ">=3.1.11"
   },
   "babel": {
     "presets": [
