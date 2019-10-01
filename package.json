@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Allows to post and reply to project posts via login validation",
   "main": "index.js",
+  "engines": {
+    "node": "^10.16.3",
+  },
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
@@ -56,9 +59,6 @@
     "less-loader": "^4.0.5",
     "style-loader": "^0.19.0",
     "webpack-dev-server": ">=3.1.11"
-  },
-  "engines": {
-    "node": "^10.16.3",
   },
   "babel": {
     "presets": [
