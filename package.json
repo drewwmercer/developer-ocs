@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Allows to post and reply to project posts via login validation",
   "main": "index.js",
+  "engines": {
+    "node": "^10.16.3"
+  },
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
@@ -24,7 +27,11 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "jshint": "^2.9.6",
+<<<<<<< HEAD
     "mem": "^5.1.1",
+=======
+    "mem": "^4.0.0",
+>>>>>>> 55c8fe967874d035e06ec360f8913d1fe72dc8e5
     "merge": "^1.2.1",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
