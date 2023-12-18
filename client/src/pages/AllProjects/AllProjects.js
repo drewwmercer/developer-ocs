@@ -133,6 +133,7 @@ class AllProjects extends Component {
                                 this.handleReply(
                                   project.User.user_email,
                                   project.project_title
+
                                 )}
                             />
                           </div>
@@ -161,3 +162,6 @@ class AllProjects extends Component {
 }
 
 export default AllProjects;
+
+
+// added searchQuery
